@@ -6,8 +6,6 @@
 
 BOARD_VENDOR := xiaomi
 
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-SELINUX_IGNORE_NEVERALLOWS := true
 COMMON_PATH := device/xiaomi/sdm845-common
 
 # Architecture
@@ -28,6 +26,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm845
 TARGET_NO_BOOTLOADER := true
+
+# Broken Rules
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 1
@@ -138,6 +140,8 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
+
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
