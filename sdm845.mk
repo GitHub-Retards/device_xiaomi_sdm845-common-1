@@ -401,6 +401,9 @@ $(call inherit-product, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
 # Call Firmware setup
 $(call inherit-product, firmware/xiaomi/beryllium/Android.mk)
 
+# Call Firmware setup
+$(call inherit-product, packages/apps/memecam/config.mk)
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
